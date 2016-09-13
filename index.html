@@ -4,28 +4,40 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>wedReg | Chris Smalley</title>
-    <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="lib/bower_components/materialize/dist/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="css/main.css">
   </head>
-  <body>
-    <h1>wedReg<small> Capstone</small></h1>
-
+  <body ng-app="wedReg">
+    <div ng-controller="TopCtrl">
+      <div ng-include="'partials/navbar.html'"></div>
+        <div class="row">
+            <div ng-view></div>
+        </div>
+    </div>
 
 
 
     <!-- 3rd party libs -->
-    <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js">
-    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="lib/bower_components/materialize/dist/js/materialize.min.js"></script>
     <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="lib/bower_components/angular-materialize/src/angular-materialize.js"></script>
     <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
     <script type="text/javascript" src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
     <!-- App specific files -->
     <script type="text/javascript" src="app/app.js"></script>
     <!-- providers -->
+    <script type="text/javascript" src="app/values/fb-creds.js"></script>
+    <script type="text/javascript" src="app/factories/AuthFactory.js"></script>
+    <script type="text/javascript" src="app/factories/FilterFactory.js"></script>
 
     <!-- controllers -->
+    <script type="text/javascript" src="app/controllers/NavCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/TopCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
+    <script type="text/javascript" src="app/controllers/LaunchCtrl.js"></script>
 
   </body>
 </html>
