@@ -1,16 +1,10 @@
-  <div class="row">
+
+<div class="modal" id="guestRegModal">
+  <div class="row modal-content">
+    <h5>Welcome to wedReg!</h5>
+    <p>Please register before we proceed. We promise not to spam you, your info is just for the couple. At wedReg, we like to make the registry process easy on the couple and their guests. That's why we need your info first so the couple will know exactly where to send those handwritten thank you notes!</p>
     <form class="col s12">
       <div class="row">
-        <h5>The Couple</h5>
-        <div class="input-field col s2">
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s2">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-        <span><h6>and</h6></span>
         <div class="input-field col s2">
           <input id="first_name" type="text" class="validate">
           <label for="first_name">First Name</label>
@@ -21,72 +15,31 @@
         </div>
       </div>
       <div class="row">
-        <h5>The Wedding Day</h5>
-        <div class="col s4" ng-controller="CoupleRegCtrl">
-
-          <label for="inputCreated">Input date</label>
-          <input type="date" class="datepicker">
-<!--           <input input-date
-              type="text"
-              name="created"
-              id="inputCreated"
-              ng-model="currentTime"
-              container=""
-              format="dd/mm/yyyy"
-              months-full="{{ month }}"
-              months-short="{{ monthShort }}"
-              weekdays-full="{{ weekdaysFull }}"
-              weekdays-short="{{ weekdaysShort }}"
-              weekdays-letter="{{ weekdaysLetter }}"
-              disable="disable"
-              min="{{ minDate }}"
-              max="{{ maxDate }}"
-              today="today"
-              first-day="1"
-              clear="clear"
-              close="close"
-              select-years="15"
-              on-start="onStart()"
-              on-render="onRender()"
-              on-open="onOpen()"
-              on-close="onClose()"
-              on-set="onSet()"
-              on-stop="onStop()" /> -->
-        </div>
-        <h6>in</h6>
-        <div class="input-field col s2">
-          <input id="location" type="text" class="validate" placeholder="Nashville, TN">
-          <label for="location">Location</label>
-        </div>
+        <table>
+          <tbody>
+          <tr><td class="input-field"><input id="street" type="text" class="validate">
+            <label class="center-align teal-text lighten-1" for="street">Address</label></td></tr>
+          </tbody>
+        </table>
+        <table>
+          <tbody>
+            <tr><td class="input-field"><input id="city" type="text" class="validate">
+            <label class="center-align teal-text lighten-1" for="city">City</label></td>
+            <td class="input-field"><input id="state" type="text" class="validate">
+            <label class="center-align teal-text lighten-1" for="state">State</label></td>
+            <td class="input-field"><input id="zip" type="text" class="validate">
+            <label class="center-align teal-text lighten-1" for="zip">Zip</label></td></tr>
+          </tbody>
+        </table>
       </div>
       <div class="row">
-        <h6>If a guest has to miss your big day, where can they send gifts?</h6>
-        <div class="input-field col s10">
-          <input id="street" type="text" class="validate">
-          <label for="street">Address</label>
-        </div>
-        <div class="input-field col s3">
-          <input id="city" type="text" class="validate">
-          <label for="city">City</label>
-        </div>
-        <div class="input-field col s2">
-          <input id="state" type="text" class="validate">
-          <label for="state">State</label>
-        </div>
-        <div class="input-field col s2">
-          <input id="zip" type="number" class="validate" maxlength="5">
-          <label for="zip">Zip</label>
-        </div>
-      </div>
-      <div class="row">
-        <h5>Most importantly register for wedReg, so we can remember you!</h5>
         <div class="input-field col s6">
           <input id="password" type="password" class="validate">
           <label for="password">Password</label>
         </div>
         <div class="input-field col s6">
-          <input id="email" type="email" class="validate">
-          <label data-error="Please enter a valid email." data-success="Looks good!" for="email">Email</label>
+          <input id="email" type="text" class="validate">
+          <label for="email">Email</label>
         </div>
       </div>
       <div class="row center">
@@ -94,4 +47,9 @@
         <a href="#" class="btn-large waves-effect waves-light teal lighten-1">SAVE</a>
       </div>
     </form>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-large">Submit</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-large">Cancel</a>
+    </div>
   </div>
+</div>

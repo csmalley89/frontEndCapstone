@@ -2,7 +2,7 @@
 "use strict";
 
 
-var app = angular.module("wedReg", ["ngRoute"])
+var app = angular.module("wedReg", ["ngRoute", "ui.materialize"])
 .constant("FirebaseURL", "https://wedreg-96a4d.firebaseio.com");
 
 let isAuth = (AuthFactory) => new Promise((resolve, reject) =>{
@@ -14,6 +14,7 @@ let isAuth = (AuthFactory) => new Promise((resolve, reject) =>{
 });
 
 
+
 app.config(function($routeProvider) {
   $routeProvider.
     when('/', {
@@ -21,20 +22,23 @@ app.config(function($routeProvider) {
       controller: 'LoginCtrl'
       // resolve: {isAuth}
     }).
-    when('/login', {
+    when('/launch', {
       templateUrl:'partials/launch.html',
       controller: 'LoginCtrl'
       // resolve: {isAuth}
     }).
-    when('/couple-reg', {
+    when('/couple-registration', {
       templateUrl: 'partials/couple-reg.html',
       controller: 'CoupleRegCtrl',
     }).
-    // when('/items/new', {
-    //   templateUrl: 'partials/item-form.html',
-    //   controller: 'ItemNewCtrl',
-    //   resolve: {isAuth}
-    // }).
+    when('/guest-registration', {
+      templateUrl: 'partials/guest-reg.html',
+    }).
+    when('/login', {
+      templateUrl: 'partials/login.html',
+      controller: 'LoginCtrl',
+      // resolve: {isAuth}
+    }).
     // when('/items/view/:itemId', {
     //   templateUrl: 'partials/item-details.html',
     //   controller: 'ItemViewCtrl',
@@ -47,7 +51,7 @@ app.config(function($routeProvider) {
     //   resolve: {isAuth}
 
     // }).
-    otherwise('/');
+    otherwise('/launch');
 });
 
 

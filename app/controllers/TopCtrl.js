@@ -20,7 +20,7 @@ app.controller("TopCtrl", function($scope, $location, $window, AuthFactory){
     } else {
       currentUser = null;
       $scope.isLoggedIn = false;
-      $window.location.href = "#/login";
+      $window.location.href = "#/launch";
     }
     $scope.$apply();
   });
@@ -33,7 +33,7 @@ app.controller("TopCtrl", function($scope, $location, $window, AuthFactory){
     AuthFactory.logoutUser()
     .then(function(data){
       console.log("logged out", data);
-      $window.location.href = "/";
+      $window.location.href = "#/launch";
     });
   };
 

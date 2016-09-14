@@ -7,9 +7,9 @@
         <h5 class="header col s12 light">Big or small, wedReg is the easiest way for couples to get it all.</h5>
       </div>
       <div class="row center">
-            <a href="#" class="btn-large waves-effect waves-light teal lighten-1">FIND A COUPLE</a>
-            <a href="#" class="btn-large waves-effect waves-light teal lighten-1" ng-click="signUp()">SIGN UP</a>
-            <p><span>Already joined? <a href="#" class="teal-text" >LOG IN</a><span></p>
+            <a href="#guestRegModal" class="btn-large waves-effect waves-light teal lighten-1" modal>FIND A COUPLE</a>
+            <a href="#coupleRegModal" class="btn-large waves-effect waves-light teal lighten-1" modal>SIGN UP</a>
+            <p><span>Already joined? <a href="#loginModal" class="teal-text" modal>LOG IN</a><span></p>
       </div>
       <br><br>
     </div>
@@ -49,6 +49,206 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
+
+<!--===============================================
+=            Couple Registration Modal            =
+================================================-->
+
+<div class="modal" id="coupleRegModal">
+  <div class="row modal-content">
+    <div>
+      <h4 data-field="id" class="center">The Couple</h4>
+      <table>
+        <tbody>
+          <tr>
+            <td class="input-field"><input id="firsName1" type="text" class="validate" required>
+              <label class="teal-text lighten-1" for="firsName1">First Name</label>
+            </td>
+            <td class="input-field"><input id="lastName1" type="text" class="validate" required>
+              <label class="teal-text lighten-1" for="lastName1">Last Name</label>
+            </td>
+            <td><h5>and</h5></td>
+            <td class="input-field"><input id="firsName2" type="text" class="validate" required>
+              <label class="teal-text lighten-1" for="firsName2">First Name</label>
+            </td>
+            <td class="input-field"><input id="lastName2" type="text" class="validate" required>
+              <label class="teal-text lighten-1" for="lastName2">Last Name</label>
+            </td>
+        </tbody>
+      </table>
+      <h4 data-field="id" class="center">The Wedding Day</h4>
+      <table>
+        <tbody>
+          <tr>
+            <td><div class="ng-scope" ng-controller="DateController">
+              <!-- <label class="teal-text lighten-1" for="inputCreated" class="active">Input date</label> -->
+              <input input-date
+                type="text"
+                name="created"
+                id="inputCreated"
+                ng-model="currentTime"
+                container=""
+                format="mm/dd/yyyy"
+                months-full="{{ month }}"
+                months-short="{{ monthShort }}"
+                weekdays-full="{{ weekdaysFull }}"
+                weekdays-short="{{ weekdaysShort }}"
+                weekdays-letter="{{ weekdaysLetter }}"
+                disable="disable"
+                min="{{ minDate }}"
+                max="{{ maxDate }}"
+                today="today"
+                first-day="1"
+                clear="clear"
+                close="close"
+                select-years="15"
+                on-start="onStart()"
+                on-render="onRender()"
+                on-open="onOpen()"
+                on-close="onClose()"
+                on-set="onSet()"
+                on-stop="onStop()" />
+            </div></td>
+            <td><h5> in</h5></td>
+            <td class="input-field"><input id="location" type="text" class="validate" required>
+              <label class="teal-text lighten-1" for="location">Location</label></td>
+          </tr>
+        </tbody>
+      </table>
+      <h6 data-field="id" class="center">If a guest has to miss your big day, where can they send gifts?</h6>
+      <table>
+        <tbody>
+        <tr><td class="input-field"><input id="street" type="text" class="validate" required>
+          <label class="teal-text lighten-1" for="street">Address</label></td></tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr><td class="input-field"><input id="city" type="text" class="validate" required>
+          <label class="teal-text lighten-1" for="city">City</label></td>
+          <td class="input-field"><input id="state" type="text" class="validate" required>
+          <label class="teal-text lighten-1" for="state">State</label></td>
+          <td class="input-field"><input id="zip" type="text" class="validate" required>
+          <label class="teal-text lighten-1" for="zip">Zip</label></td></tr>
+        </tbody>
+      </table>
+      <h6 data-field="id" class="center">Most importantly register for wedReg, so we can remember you!</h6>
+      <table>
+        <tbody>
+          <tr><td class="input-field"><input id="password" type="password" class="validate" required>
+            <label class="teal-text lighten-1" for="password">Password</label>
+          </td>
+          <td class="input-field"><input id="email" type="text" class="validate" required>
+            <label class="teal-text lighten-1" for="email">Email</label>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+     </div>
+    </div>
+  </div>
+</div>
+
+<!--====  End of Couple Registration Modal  ====-->
+
+
+
+
+<!--==============================================
+=            Guest Registration Modal            =
+===============================================-->
+
+<div class="modal" id="guestRegModal">
+  <div class="row modal-content">
+    <h5>Welcome to wedReg!</h5>
+    <p>Please register before we proceed. We promise not to spam you, your info is just for the couple. At wedReg, we like to make the registry process easy on the couple and their guests. That's why we need your info first so the couple will know exactly where to send those handwritten thank you notes!</p>
+    <form class="col s12">
+      <div class="row">
+      <table>
+        <tbody><tr>
+          <td class="input-field">
+            <input id="first_name" type="text" class="validate" required>
+            <label for="guest_first_name" class="teal-text lighten-1">First Name</label>
+          </td>
+          <td class="input-field">
+            <input id="last_name" type="text" class="validate" required>
+            <label for="guest_last_name" class="teal-text lighten-1">Last Name</label>
+          </td>
+        </tr></tbody>
+      </table>
+      <div class="row">
+        <table>
+          <tbody>
+          <tr><td class="input-field"><input id="street" type="text" class="validate" required>
+            <label class="teal-text lighten-1" for="street"> Street Address</label></td></tr>
+          </tbody>
+        </table>
+        <table>
+          <tbody>
+            <tr><td class="input-field"><input id="city" type="text" class="validate" required>
+            <label class="teal-text lighten-1" for="city">City</label></td>
+            <td class="input-field"><input id="state" type="text" class="validate" required>
+            <label class="teal-text lighten-1" for="state">State</label></td>
+            <td class="input-field"><input id="zip" type="text" class="validate" required>
+            <label class="teal-text lighten-1" for="zip">Zip</label></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="password" type="password" class="validate" required>
+          <label class="teal-text lighten-1" for="password">Password</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="email" type="text" class="validate" required>
+          <label class="teal-text lighten-1" for="email">Email</label>
+        </div>
+      </div>
+    </form>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+    </div>
+  </div>
+</div>
+
+
+<!--====  End of Guest Registration Modal  ====-->
+
+
+
+<!--==============================================
+=            Login Modal            =
+===============================================-->
+
+<div class="auth-form modal" id="loginModal">
+  <div class="modal-content">
+    <form class="col s12">
+      <div class="row">
+      <h4>Welcome back!</h4>
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate" required autofocus="true" ng-model="account.email">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" required ng-model="account.password">
+          <label for="password">Password</label>
+        </div>
+      </div>
+    </form>
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="login()">Login</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+    </div>
+  </div>
+</div>
+
+
+<!--====  End of Login Modal  ====-->
