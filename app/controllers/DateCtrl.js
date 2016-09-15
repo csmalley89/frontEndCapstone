@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('DateController', ["$scope", function ($scope) {
+app.controller('WeddingDate', ["$scope", function ($scope) {
   var currentTime = new Date();
   $scope.currentTime = currentTime;
   $scope.month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

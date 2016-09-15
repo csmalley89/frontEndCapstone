@@ -1,14 +1,25 @@
 "use strict";
 
-app.controller("CoupleRegCtrl", function($scope, $window){
-  $scope.signUp = () => {
-    $window.location.url = "#/couple-registration";
-
-    // $('.datepicker').pickadate({
-    //   selectMonths: true, // Creates a dropdown to control month
-    //   selectYears: 15 // Creates a dropdown of 15 years to control year
-    // });
+app.controller("CoupleRegCtrl", function($scope, CoupleDB, $location){
+  $scope.newCouple = {
+    firstName1: "",
+    lastName1: "",
+    firstName2: "",
+    lastName2: "",
+    WeddingDate:"",
+    location: "",
+    coupleStreet: "",
+    coupleCity: "",
+    coupleState: "",
+    coupleZip: "",
+    uid: $scope.$parent.getUser()
   };
 
+  $scope.addNewCouple = function(){
+    CoupleDB.postNewCouple($scope.newCouple)
+    .then(function(){
+      $location.url('/couple/welcome');
+    });
+  };
 
 });
