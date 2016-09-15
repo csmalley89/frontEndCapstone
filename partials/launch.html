@@ -70,20 +70,20 @@
         <tbody>
           <tr>
             <td class="input-field"><input class="validate" id="firstName1"
-            ng-model="newCouple.firstName1" required="" type="text">
+            ng-model="couple.firstName1" required="" type="text">
             <label class="teal-text lighten-1" for="firstName1">First
             Name</label></td>
             <td class="input-field"><input class="validate" id="lastName1"
-            ng-model="newCouple.lastName1" required="" type="text"> <label class="teal-text lighten-1" for="lastName1">Last Name</label></td>
+            ng-model="couple.lastName1" required="" type="text"> <label class="teal-text lighten-1" for="lastName1">Last Name</label></td>
             <td>
               <h6>and</h6>
             </td>
             <td class="input-field"><input class="validate" id="firstName2"
-            ng-model="newCouple.firstName2" required="" type="text">
+            ng-model="couple.firstName2" required="" type="text">
             <label class="teal-text lighten-1" for="firstName2">First
             Name</label></td>
             <td class="input-field"><input class="validate" id="lastName2"
-            ng-model="newCouple.lastName2" required="" type="text"> <label class="teal-text lighten-1" for="lastName2">Last Name</label></td>
+            ng-model="couple.lastName2" required="" type="text"> <label class="teal-text lighten-1" for="lastName2">Last Name</label></td>
           </tr>
         </tbody>
       </table>
@@ -97,7 +97,7 @@
                   type="text"
                   name="created"
                   id="inputCreated"
-                  ng-model="newCouple.WeddingDate"
+                  ng-model="couple.WeddingDate"
                   container=""
                   format="mm/dd/yyyy"
                   months-full="{{ month }}"
@@ -125,7 +125,7 @@
               <h6>in</h6>
             </td>
             <td class="input-field"><input class="validate" id="location"
-            ng-model="newCouple.location" required="" type="text"> <label class="teal-text lighten-1" for="location">Location</label></td>
+            ng-model="couple.location" required="" type="text"> <label class="teal-text lighten-1" for="location">Location</label></td>
           </tr>
         </tbody>
       </table>
@@ -135,7 +135,7 @@
         <tbody>
           <tr>
             <td class="input-field"><input class="validate" id="street"
-            ng-model="newCouple.coupleStreet" required="" type="text">
+            ng-model="couple.coupleStreet" required="" type="text">
             <label class="teal-text lighten-1" for="street">Address</label></td>
           </tr>
         </tbody>
@@ -143,11 +143,11 @@
       <table>
         <tbody>
           <tr>
-            <td class="input-field"><input class="validate" id="city" ng-model="newCouple.coupleCity" required="" type="text"> <label class="teal-text lighten-1" for="city">City</label></td>
+            <td class="input-field"><input class="validate" id="city" ng-model="couple.coupleCity" required="" type="text"> <label class="teal-text lighten-1" for="city">City</label></td>
             <td class="input-field"><input class="validate" id="state"
-            ng-model="newCouple.coupleState" required="" type="text">
+            ng-model="couple.coupleState" required="" type="text">
             <label class="teal-text lighten-1" for="state">State</label></td>
-            <td class="input-field"><input class="validate" id="zip" ng-model="newCouple.coupleZip" required="" type="text"> <label class="teal-text lighten-1" for="zip">Zip</label></td>
+            <td class="input-field"><input class="validate" id="zip" ng-model="couple.coupleZip" required="" type="text"> <label class="teal-text lighten-1" for="zip">Zip</label></td>
           </tr>
         </tbody>
       </table>
@@ -167,7 +167,7 @@
       </table>
       <div class="modal-footer">
         <a class=" modal-action modal-close waves-effect waves-green btn-flat"
-        href="#!" ng-click="register()">Submit</a> <a class=" modal-action modal-close waves-effect waves-green btn-flat" href="#!">Cancel</a>
+        href="#!" ng-click="coupleRegister()">Submit</a> <a class=" modal-action modal-close waves-effect waves-green btn-flat" href="#!">Cancel</a>
       </div>
     </div>
   </div>
@@ -191,11 +191,11 @@
         <table>
           <tbody><tr>
             <td class="input-field">
-              <input id="first_name" type="text" class="validate" required ng-model="guest.">
+              <input id="first_name" type="text" class="validate" required ng-model="guest.firstName">
               <label for="guest_first_name" class="teal-text lighten-1">First Name</label>
             </td>
             <td class="input-field">
-              <input id="last_name" type="text" class="validate" required ng-model="guest.">
+              <input id="last_name" type="text" class="validate" required ng-model="guest.lastName">
               <label for="guest_last_name" class="teal-text lighten-1">Last Name</label>
             </td>
           </tr></tbody>
@@ -204,17 +204,17 @@
       <div class="row">
         <table>
           <tbody>
-          <tr><td class="input-field"><input id="street" type="text" class="validate" required ng-model="guest.">
+          <tr><td class="input-field"><input id="street" type="text" class="validate" required ng-model="guest.street">
             <label class="teal-text lighten-1" for="street"> Street Address</label></td></tr>
           </tbody>
         </table>
         <table>
           <tbody>
-            <tr><td class="input-field"><input id="city" type="text" class="validate" required ng-model="guest.">
+            <tr><td class="input-field"><input id="city" type="text" class="validate" required ng-model="guest.city">
             <label class="teal-text lighten-1" for="city">City</label></td>
-            <td class="input-field"><input id="state" type="text" class="validate" required ng-model="guest.">
+            <td class="input-field"><input id="state" type="text" class="validate" required ng-model="guest.state">
             <label class="teal-text lighten-1" for="state">State</label></td>
-            <td class="input-field"><input id="zip" type="text" class="validate" required ng-model="guest.">
+            <td class="input-field"><input id="zip" type="text" class="validate" required ng-model="guest.zip">
             <label class="teal-text lighten-1" for="zip">Zip</label></td></tr>
           </tbody>
         </table>
@@ -231,7 +231,7 @@
       </div>
     </form>
     <div class="modal-footer">
-      <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="login()">Submit</a>
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="guestRegister()">Submit</a>
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
     </div>
   </div>
@@ -263,7 +263,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="register()">Login</a>
+    <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="login()">Login</a>
     <a class="modal-action modal-close waves-effect waves-green btn-flat" href="#!">Cancel</a>
   </div>
 </div>
