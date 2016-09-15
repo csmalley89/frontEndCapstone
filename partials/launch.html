@@ -14,7 +14,7 @@
       <br><br>
     </div>
   </div>
-  <div class="parallax" parallax><img src="img/wedding1.jpg"></div>
+  <div class="parallax"><img src="img/wedding1.jpg"></div>
 </div>
 
 <div class="container">
@@ -66,24 +66,24 @@
       guests were able to give you the gifts you actually want! Please take a
       minute and fill out this form, then we can start the fun!</p>
       <h5 data-field="id">The Couple</h5>
-<!--       <table>
+      <table>
         <tbody>
           <tr>
             <td class="input-field"><input class="validate" id="firstName1"
-            ng-model="account.firstName1" required="" type="text">
+            ng-model="newCouple.firstName1" required="" type="text">
             <label class="teal-text lighten-1" for="firstName1">First
             Name</label></td>
             <td class="input-field"><input class="validate" id="lastName1"
-            ng-model="account.lastName1" required="" type="text"> <label class="teal-text lighten-1" for="lastName1">Last Name</label></td>
+            ng-model="newCouple.lastName1" required="" type="text"> <label class="teal-text lighten-1" for="lastName1">Last Name</label></td>
             <td>
               <h6>and</h6>
             </td>
             <td class="input-field"><input class="validate" id="firstName2"
-            ng-model="account.firstName2" required="" type="text">
+            ng-model="newCouple.firstName2" required="" type="text">
             <label class="teal-text lighten-1" for="firstName2">First
             Name</label></td>
             <td class="input-field"><input class="validate" id="lastName2"
-            ng-model="account.lastName2" required="" type="text"> <label class="teal-text lighten-1" for="lastName2">Last Name</label></td>
+            ng-model="newCouple.lastName2" required="" type="text"> <label class="teal-text lighten-1" for="lastName2">Last Name</label></td>
           </tr>
         </tbody>
       </table>
@@ -92,12 +92,12 @@
         <tbody>
           <tr>
             <td>
-              <div class="ng-scope" ng-controller="DateController">
+              <div class="ng-scope" ng-controller="DateCtrl">
                 <input input-date
                   type="text"
                   name="created"
                   id="inputCreated"
-                  ng-model="currentTime"
+                  ng-model="newCouple.WeddingDate"
                   container=""
                   format="mm/dd/yyyy"
                   months-full="{{ month }}"
@@ -125,7 +125,7 @@
               <h6>in</h6>
             </td>
             <td class="input-field"><input class="validate" id="location"
-            ng-model="account.location" required="" type="text"> <label class="teal-text lighten-1" for="location">Location</label></td>
+            ng-model="newCouple.location" required="" type="text"> <label class="teal-text lighten-1" for="location">Location</label></td>
           </tr>
         </tbody>
       </table>
@@ -135,7 +135,7 @@
         <tbody>
           <tr>
             <td class="input-field"><input class="validate" id="street"
-            ng-model="account.coupleStreet" required="" type="text">
+            ng-model="newCouple.coupleStreet" required="" type="text">
             <label class="teal-text lighten-1" for="street">Address</label></td>
           </tr>
         </tbody>
@@ -143,14 +143,14 @@
       <table>
         <tbody>
           <tr>
-            <td class="input-field"><input class="validate" id="city" ng-model="account.coupleCity" required="" type="text"> <label class="teal-text lighten-1" for="city">City</label></td>
+            <td class="input-field"><input class="validate" id="city" ng-model="newCouple.coupleCity" required="" type="text"> <label class="teal-text lighten-1" for="city">City</label></td>
             <td class="input-field"><input class="validate" id="state"
-            ng-model="account.coupleState" required="" type="text">
+            ng-model="newCouple.coupleState" required="" type="text">
             <label class="teal-text lighten-1" for="state">State</label></td>
-            <td class="input-field"><input class="validate" id="zip" ng-model="account.coupleZip" required="" type="text"> <label class="teal-text lighten-1" for="zip">Zip</label></td>
+            <td class="input-field"><input class="validate" id="zip" ng-model="newCouple.coupleZip" required="" type="text"> <label class="teal-text lighten-1" for="zip">Zip</label></td>
           </tr>
         </tbody>
-      </table> -->
+      </table>
       <h6 data-field="id">Most importantly register for wedReg, so we can
       remember you!</h6>
       <table>
@@ -191,11 +191,11 @@
         <table>
           <tbody><tr>
             <td class="input-field">
-              <input id="first_name" type="text" class="validate" required>
+              <input id="first_name" type="text" class="validate" required ng-model="guest.">
               <label for="guest_first_name" class="teal-text lighten-1">First Name</label>
             </td>
             <td class="input-field">
-              <input id="last_name" type="text" class="validate" required>
+              <input id="last_name" type="text" class="validate" required ng-model="guest.">
               <label for="guest_last_name" class="teal-text lighten-1">Last Name</label>
             </td>
           </tr></tbody>
@@ -204,28 +204,28 @@
       <div class="row">
         <table>
           <tbody>
-          <tr><td class="input-field"><input id="street" type="text" class="validate" required>
+          <tr><td class="input-field"><input id="street" type="text" class="validate" required ng-model="guest.">
             <label class="teal-text lighten-1" for="street"> Street Address</label></td></tr>
           </tbody>
         </table>
         <table>
           <tbody>
-            <tr><td class="input-field"><input id="city" type="text" class="validate" required>
+            <tr><td class="input-field"><input id="city" type="text" class="validate" required ng-model="guest.">
             <label class="teal-text lighten-1" for="city">City</label></td>
-            <td class="input-field"><input id="state" type="text" class="validate" required>
+            <td class="input-field"><input id="state" type="text" class="validate" required ng-model="guest.">
             <label class="teal-text lighten-1" for="state">State</label></td>
-            <td class="input-field"><input id="zip" type="text" class="validate" required>
+            <td class="input-field"><input id="zip" type="text" class="validate" required ng-model="guest.">
             <label class="teal-text lighten-1" for="zip">Zip</label></td></tr>
           </tbody>
         </table>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input id="email" type="text" class="validate" required>
+          <input id="email" type="text" class="validate" required ng-model="account.email">
           <label class="teal-text lighten-1" for="email">Email</label>
         </div>
         <div class="input-field col s6">
-          <input id="password" type="password" class="validate" required>
+          <input id="password" type="password" class="validate" required ng-model="account.password">
           <label class="teal-text lighten-1" for="password">Password</label>
         </div>
       </div>

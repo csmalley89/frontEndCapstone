@@ -31,9 +31,6 @@ app.config(function($routeProvider) {
       templateUrl: 'partials/couple-reg.html',
       controller: 'CoupleRegCtrl',
     }).
-    when('/guest-registration', {
-      templateUrl: 'partials/guest-reg.html',
-    }).
     // when('/login', {
     //   templateUrl: 'partials/login.html',
     //   controller: 'LoginCtrl',

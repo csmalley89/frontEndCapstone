@@ -35,7 +35,7 @@ app.factory("CoupleDB", ($q, $http, FirebaseURL) => {
     });
   };
 
-  let postNewCouple = (newCouple) => {
+  let registerNewCouple = (newCouple) => {
     return $q( (resolve, reject) => {
       $http.post(`${FirebaseURL}/users.json`, JSON.stringify(newCouple))
         .success((objFromFirebase) => {
@@ -69,5 +69,5 @@ app.factory("CoupleDB", ($q, $http, FirebaseURL) => {
   };
 
 
-  return{getCoupleList, postNewCouple, deleteCouple, getSingleCouple, updateCouple};
+  return{getCoupleList, registerNewCouple, deleteCouple, getSingleCouple, updateCouple};
 });
