@@ -34,11 +34,11 @@ app.config(function($routeProvider) {
     when('/guest-registration', {
       templateUrl: 'partials/guest-reg.html',
     }).
-    when('/login', {
-      templateUrl: 'partials/login.html',
-      controller: 'LoginCtrl',
-      // resolve: {isAuth}
-    }).
+    // when('/login', {
+    //   templateUrl: 'partials/login.html',
+    //   controller: 'LoginCtrl',
+    //   // resolve: {isAuth}
+    // }).
     // when('/items/view/:itemId', {
     //   templateUrl: 'partials/item-details.html',
     //   controller: 'ItemViewCtrl',
