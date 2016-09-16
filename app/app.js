@@ -2,7 +2,7 @@
 "use strict";
 
 
-var app = angular.module("wedReg", ["ngRoute", "ui.materialize"])
+var app = angular.module("wedReg", ["ngRoute", "ui.materialize", "countdownTimer"])
 .constant("FirebaseURL", "https://wedreg-96a4d.firebaseio.com");
 
 let isAuth = (AuthFactory) => new Promise((resolve, reject) =>{

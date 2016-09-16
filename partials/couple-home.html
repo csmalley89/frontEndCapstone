@@ -2,9 +2,10 @@
   <div class="section no-pad-bot">
     <div class="container">
       <br><br>
-      <h2 class="header left-align teal-text text-lighten-2">{{couples.firstName1}} and {{couples.firstName2}}</h2>
-      <div class="row left-align">
+      <h2 class="header center pink-text text-accent-1">{{couples.firstName1}} and {{couples.firstName2}}</h2>
+      <div class="row center">
         <h5 class="header col s12 light">{{couples.WeddingDate}} | {{couples.location}}</h5>
+        <h5 class="header col s12 light"><span countdown end-date="{{couples.WeddingDate}}" units="days"></span> to go!</h5>
       </div>
 <!--       <div class="row center">
         <a href="#guestRegModal" class="btn-large waves-effect waves-light teal lighten-1" modal>FIND A COUPLE</a>
@@ -14,6 +15,6 @@
 
     </div>
   </div>
-  <div class="parallax" parallax><img src="img/orange-flower-header.jpg"></div>
+  <div class="parallax" parallax><img src="img/weddingbanner.png"></div>
 </div>
 
