@@ -79,3 +79,6 @@ app.controller("LoginCtrl", function($scope, $window, RegFactory, AuthFactory){
     });
   };
 });
+
+
+

@@ -14,22 +14,20 @@ let isAuth = (AuthFactory) => new Promise((resolve, reject) =>{
 });
 
 
-
 app.config(function($routeProvider) {
   $routeProvider.
     when('/', {
       templateUrl:'partials/launch.html',
-      controller: 'LoginCtrl'
-      // resolve: {isAuth}
+      controller: 'LoginCtrl',
     }).
     when('/launch', {
       templateUrl:'partials/launch.html',
-      controller: 'LoginCtrl'
-      // resolve: {isAuth}
+      controller: 'LoginCtrl',
     }).
-    when('/couple-registration', {
-      templateUrl: 'partials/couple-reg.html',
-      controller: 'CoupleRegCtrl',
+    when('/couple/welcome', {
+      templateUrl: 'partials/couple-home.html',
+      controller: 'UserInfoCtrl',
+      resolve: {isAuth}
     }).
     // when('/login', {
     //   templateUrl: 'partials/login.html',
@@ -59,6 +57,4 @@ app.run(($location, FBCreds) => {
     authDomain: creds.AuthDomain
   };
   firebase.initializeApp(authConfig);
-
-
 });
