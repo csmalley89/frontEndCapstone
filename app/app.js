@@ -29,11 +29,11 @@ app.config(function($routeProvider) {
       controller: 'UserInfoCtrl',
       resolve: {isAuth}
     }).
-    // when('/login', {
-    //   templateUrl: 'partials/login.html',
-    //   controller: 'LoginCtrl',
-    //   // resolve: {isAuth}
-    // }).
+    when('/guest/welcome', {
+      templateUrl: 'partials/guest-home.html',
+      controller: 'UserInfoCtrl',
+      resolve: {isAuth}
+    }).
     // when('/items/view/:itemId', {
     //   templateUrl: 'partials/item-details.html',
     //   controller: 'ItemViewCtrl',

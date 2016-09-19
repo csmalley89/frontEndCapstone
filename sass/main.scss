@@ -20,7 +20,9 @@ p {
   .parallax-container .section {
     width: 100%;
   }
-
+.guestWelcome {
+  padding-top: 80px;
+}
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
@@ -28,7 +30,7 @@ p {
     top: 40%;
   }
   #index-banner .section {
-    top: 10%;
+    top: 5%;
   }
 }
 
