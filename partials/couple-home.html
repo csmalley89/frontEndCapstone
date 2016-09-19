@@ -7,14 +7,30 @@
         <h5 class="header col s12 light">{{couples.WeddingDate}} | {{couples.location}}</h5>
         <h5 class="header col s12 light"><span countdown end-date="{{couples.WeddingDate}}" units="days"></span> to go!</h5>
       </div>
-<!--       <div class="row center">
-        <a href="#guestRegModal" class="btn-large waves-effect waves-light teal lighten-1" modal>FIND A COUPLE</a>
-        <a href="#coupleRegModal" class="btn-large waves-effect waves-light teal lighten-1" modal>SIGN UP</a>
-        <p><span>Already joined?<a href="#loginModal" class="teal-text" modal>LOG IN</a></span></p>
-      </div> -->
 
     </div>
   </div>
   <div class="parallax" parallax><img src="img/weddingbanner.png"></div>
 </div>
 
+<div ng-controller='FileUpload'>
+  <div class="container-fluid">
+    <p class="text-info" align="center">Upload Images to Firebase</p>
+    <hr />
+
+    <form ng-submit="uploadFile()">
+      <input type="file" name="file" class="inputimg" id="nameImg" accept="image/*">
+      <br />
+      <span class="input-group-btn">
+        <button  type="submit" class="btn btn-block">Upload Image
+          <i class="material-icons">send</i>
+        </button>
+      </span>
+    </form>
+    <hr />
+    <div ng-repeat="img in imgs | toArray | orderBy: '-date'" class="col s3">
+      <img ng-src="{{img.base64}}">
+      <a class="waves-effect waves-light btn" ng-click="deleteimg(img.$id)">Delete</a>
+    </div>
+  </div>
+</div>
