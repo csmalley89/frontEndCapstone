@@ -2,7 +2,7 @@
 "use strict";
 
 
-var app = angular.module("wedReg", ["ngRoute", "ui.materialize", "countdownTimer"])
+var app = angular.module("wedReg", ["ngRoute", "ui.materialize", "countdownTimer", "btford.modal"])
 .constant("FirebaseURL", "https://wedreg-96a4d.firebaseio.com");
 
 let isAuth = (AuthFactory) => new Promise((resolve, reject) =>{
@@ -34,6 +34,12 @@ app.config(function($routeProvider) {
       controller: 'GuestViewAllCouplesCtrl',
       resolve: {isAuth}
     }).
+    when('/amazonpins', {
+      templateUrl: "partials/amazonpins.html",
+      controller: "AmazonPinsCtrl"
+    }).
+
+
     // when('/items/view/:itemId', {
     //   templateUrl: 'partials/item-details.html',
     //   controller: 'ItemViewCtrl',

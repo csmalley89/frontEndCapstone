@@ -56,6 +56,16 @@ app.factory("RegFactory", ($q, $http, FirebaseURL) => {
   //   });
   // };
 
+  let postNewPin = function(pinObj){
+    return $q(function(resolve,reject){
+      $http.post(`${FirebaseURL}/pins.json`,
+      pinObj).success(function(){
+        resolve();
+      }).error(function(error){
+        reject(error);
+      });
+    });
+  };
   let registerNewCouple = (newCouple) => {
     return $q( (resolve, reject) => {
       $http.post(`${FirebaseURL}/couples.json`, JSON.stringify(newCouple))
@@ -156,5 +166,5 @@ app.factory("RegFactory", ($q, $http, FirebaseURL) => {
       });
     });
   };
-  return{getCoupleList, registerNewCouple, getSingleCouple, updateCouple, deleteCouple, getGuestList, registerNewGuest, getSingleGuest, updateGuest, deleteGuest};
+  return{postNewPin, getCoupleList, registerNewCouple, getSingleCouple, updateCouple, deleteCouple, getGuestList, registerNewGuest, getSingleGuest, updateGuest, deleteGuest};
 });

@@ -1,0 +1,18 @@
+<h1>Search Amazon</h1>
+<input ng-model="amazonSearchTerm" type="text" placeholder="Search Amazon">
+<button ng-click="searchAmazon()">Search!</button>
+<div class="row">
+  <div ng-repeat="item in itemCollection">
+    <div class="col s6">
+      <div class="card large">
+        <a class="btn-floating btn-small waves-effect waves-light red"  ng-click="itemSelected(item); openPinModal()"><i class="material-icons b">Pin</i></a>
+        <div class="card-image">
+          <img src="{{item.image}}">
+        </div>
+        <div class="card-content">
+          <p>{{item.title}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
