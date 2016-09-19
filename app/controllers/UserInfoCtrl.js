@@ -4,7 +4,7 @@ app.controller("UserInfoCtrl", function($scope, RegFactory ) {
   // $scope.searchText = SearchTermData;
   let user = $scope.$parent.getUser();
     console.log("UserInfoCtrl", user);
-  RegFactory.getCoupleList()
+  RegFactory.getSingleCouple(user)
   .then((couplesCollectionArr) => {
     $scope.couples = couplesCollectionArr[0];
   });

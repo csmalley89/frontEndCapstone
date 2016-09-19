@@ -20,12 +20,12 @@
 
 <div class="container">
   <div class="row">
-    <div ng-repeat="couple in couples">
+    <div ng-repeat="couple in couples | filter: searchText.search">
       <div class="col s12 m4">
         <div class="card-panel teal">
-          <span class="pink-text text-accent-1"><h3>{{couples.firstName1}} &#38 {{couples.firstName2}}</h3>
+          <span class="pink-text text-accent-1"><h3>{{couple.firstName1}} &#38 {{couple.firstName2}}</h3>
           </span>
-          <span class="white-text"><h4>{{couples.WeddingDate}} {{couples.location}}</h4>
+          <span class="white-text"><h4>{{couple.WeddingDate}} {{couple.location}}</h4>
           </span>
           <a class="waves-effect waves-pink btn-flat">Join Registry</a>
         </div>

@@ -31,7 +31,7 @@ app.config(function($routeProvider) {
     }).
     when('/guest/welcome', {
       templateUrl: 'partials/guest-home.html',
-      controller: 'UserInfoCtrl',
+      controller: 'GuestViewAllCouplesCtrl',
       resolve: {isAuth}
     }).
     // when('/items/view/:itemId', {
