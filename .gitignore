@@ -3,5 +3,5 @@ lib/node_modules
 css/
 lib/.sass-cache
 app/values/fb-creds.js
-app/values/amazon-creds.js
+app/values/amazoncreds.js
 app/values/
