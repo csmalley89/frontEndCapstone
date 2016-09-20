@@ -1,93 +1,35 @@
+
+<div id="index-banner" class="parallax-container">
+  <div class="section guestWelcome">
+    <div class="container">
+    <br><br><br>
+      <div class="row"><span class="header center"><h2 class="teal-text text-lighten-2" style="display: inline">wedReg</h2><h4 class="pink-text text-lighten-2" style="display: inline">Couple Search</h4></span></div>
+
+<!--       <div class="row">
+        <h5 class="left-align col s6 teal-text text-darken-2">Thank you for registering! Find your couple below or use the seach bar above to narrow down the results.</h5>
+      </div> -->
+      <div class="row">
+        <div class="input-field col s12 center">
+          <input class="white teal-text lighten-2" id="search" type="search" ng-model="searchText.search" placeholder="search for registered couples">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="parallax" parallax><img src="img/pricing_banner.jpg"></div>
+</div>
+
 <div class="container">
   <div class="row">
-    <div class="col s11 offset-s1">
-      <h4 data-field="id" class="center">The Couple</h4>
-      <table>
-        <tbody>
-          <tr>
-            <td class="input-field"><input id="firsName1" type="text" class="validate">
-              <label class="center-align teal-text lighten-1" for="firsName1">First Name</label>
-            </td>
-            <td class="input-field"><input id="lastName1" type="text" class="validate">
-              <label class="center-align teal-text lighten-1" for="lastName1">Last Name</label>
-            </td>
-            <td><h5>and</h5></td>
-            <td class="input-field"><input id="firsName2" type="text" class="validate">
-              <label class="center-align teal-text lighten-1" for="firsName2">First Name</label>
-            </td>
-            <td class="input-field"><input id="lastName2" type="text" class="validate">
-              <label class="center-align teal-text lighten-1" for="lastName2">Last Name</label>
-            </td>
-        </tbody>
-      </table>
-      <h4 data-field="id" class="center">The Wedding Day</h4>
-      <table>
-        <tbody>
-          <tr>
-            <td><div class="ng-scope" ng-controller="DateController">
-              <!-- <label class="center-align teal-text lighten-1" for="inputCreated" class="active">Input date</label> -->
-              <input input-date
-                type="text"
-                name="created"
-                id="inputCreated"
-                ng-model="currentTime"
-                container=""
-                format="mm/dd/yyyy"
-                months-full="{{ month }}"
-                months-short="{{ monthShort }}"
-                weekdays-full="{{ weekdaysFull }}"
-                weekdays-short="{{ weekdaysShort }}"
-                weekdays-letter="{{ weekdaysLetter }}"
-                disable="disable"
-                min="{{ minDate }}"
-                max="{{ maxDate }}"
-                today="today"
-                first-day="1"
-                clear="clear"
-                close="close"
-                select-years="15"
-                on-start="onStart()"
-                on-render="onRender()"
-                on-open="onOpen()"
-                on-close="onClose()"
-                on-set="onSet()"
-                on-stop="onStop()" />
-            </div></td>
-            <td><h5> in</h5></td>
-            <td class="input-field"><input id="location" type="text" class="validate">
-              <label class="center-align teal-text lighten-1" for="location">Location</label></td>
-          </tr>
-        </tbody>
-      </table>
-      <h6 data-field="id" class="center">If a guest has to miss your big day, where can they send gifts?</h6>
-      <table>
-        <tbody>
-        <tr><td class="input-field"><input id="street" type="text" class="validate">
-          <label class="center-align teal-text lighten-1" for="street">Address</label></td></tr>
-        </tbody>
-      </table>
-      <table>
-        <tbody>
-          <tr><td class="input-field"><input id="city" type="text" class="validate">
-          <label class="center-align teal-text lighten-1" for="city">City</label></td>
-          <td class="input-field"><input id="state" type="text" class="validate">
-          <label class="center-align teal-text lighten-1" for="state">State</label></td>
-          <td class="input-field"><input id="zip" type="text" class="validate">
-          <label class="center-align teal-text lighten-1" for="zip">Zip</label></td></tr>
-        </tbody>
-      </table>
-      <h6 data-field="id" class="center">Most importantly register for wedReg, so we can remember you!</h6>
-      <table>
-        <tbody>
-          <tr><td class="input-field"><input id="password" type="password" class="validate">
-            <label class="center-align teal-text lighten-1" for="password">Password</label>
-          </td>
-          <td class="input-field"><input id="email" type="text" class="validate">
-            <label class="center-align teal-text lighten-1" for="email">Email</label>
-          </td>
-          </tr>
-        </tbody>
-      </table>
+    <div ng-repeat="couple in couples | filter: searchText.search">
+      <div class="col s12 m4">
+        <div class="card-panel teal">
+          <span class="pink-text text-accent-1"><h3>{{couple.firstName1}} &#38 {{couple.firstName2}}</h3>
+          </span>
+          <span class="white-text"><h4>{{couple.WeddingDate}} {{couple.location}}</h4>
+          </span>
+          <a class="waves-effect white-text waves-pink btn-flat">Join Registry</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

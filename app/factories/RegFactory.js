@@ -2,7 +2,7 @@
 
 app.factory("RegFactory", ($q, $http, FirebaseURL) => {
 // couple functions
-  let getCoupleList = (couple) => {
+  let getSingleCouple = (couple) => {
     let couples = [];
     return $q((resolve, reject) => {
       $http.get(`${FirebaseURL}/couples.json?orderBy="uid"&equalTo="${couple}"`)
@@ -23,17 +23,38 @@ app.factory("RegFactory", ($q, $http, FirebaseURL) => {
     });
   };
 
-  let getSingleCouple = (coupleId) => {
+  let getCoupleList = (couple) => {
+    let couples = [];
     return $q((resolve, reject) => {
-      $http.get(`${FirebaseURL}/couples/${coupleId}.json`)
-      .success((coupleObject) =>{
-        resolve(coupleObject);
+      $http.get(`${FirebaseURL}/couples.json`)
+      .success((coupleObject) => {
+        if (coupleObject !== null) {
+        Object.keys(coupleObject).forEach((key) => {
+          coupleObject[key].id = key;
+          couples.push(coupleObject[key]);
+        });
+        resolve(couples);
+      } else {
+        resolve(couples);
+      }
       })
       .error((error) => {
         reject(error);
       });
     });
   };
+
+  // let getSingleCouple = (coupleId) => {
+  //   return $q((resolve, reject) => {
+  //     $http.get(`${FirebaseURL}/couples/${coupleId}.json`)
+  //     .success((coupleObject) =>{
+  //       resolve(coupleObject);
+  //     })
+  //     .error((error) => {
+  //       reject(error);
+  //     });
+  //   });
+  // };
 
   let registerNewCouple = (newCouple) => {
     return $q( (resolve, reject) => {
