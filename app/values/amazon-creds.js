@@ -1,8 +1,8 @@
 "use strict";
 
 app.constant("AmazonCreds", {
-  publicKey: "AKIAIG72ZBP4MAYU5ONQ",
-  privateKey: "OraAuO2QECe1CirHdb3059QXKEITxAVCAF3y7vB+",
+  publicKey: "AKIAJW2E7ZDX35WBOGQA",
+  privateKey: "gzhwKr4xwSMukcJJZ1BYFRt0Cdmrk8imWV2a/jra",
   associateId: "csmalley89-20"
 });
 
