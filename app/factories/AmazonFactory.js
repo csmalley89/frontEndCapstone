@@ -72,7 +72,7 @@ app.factory('AmazonFactory', function(AmazonCreds, $q, $http) {
     parameters.push("Operation=ItemSearch");
     parameters.push("Keywords=" + formattedItem);
     parameters.push("SearchIndex=All");
-    parameters.push("ResponseGroup=Large");
+    parameters.push("ResponseGroup=Medium");
     parameters.push("Timestamp=" + encodeURIComponent(timestamp()));
     parameters.push("Version=2013-08-01");
 

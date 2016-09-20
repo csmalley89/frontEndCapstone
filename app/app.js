@@ -12,6 +12,15 @@ let isAuth = (AuthFactory) => new Promise((resolve, reject) =>{
     reject();
   }
 });
+app.directive('scrollspy', function() {
+  return {
+      restrict: 'A',
+      // responsible for registering DOM listeners as well as updating the DOM
+      link: function() {
+          $('.scrollspy').scrollSpy();
+      }
+     };
+ });
 
 
 app.config(function($routeProvider) {
