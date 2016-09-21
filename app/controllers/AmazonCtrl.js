@@ -1,5 +1,5 @@
 "use strict";
-app.controller('AmazonCtrl', function($scope, RegFactory, AmazonFactory, ItemToRegister, GiftModal) {
+app.controller('AmazonCtrl', function($scope, RegFactory, AmazonFactory, ItemToRegister, GiftModal, $route) {
   // Assures user only see their registered info
   $scope.$parent.getUser()
   .then ( (user) => {
@@ -21,10 +21,11 @@ app.controller('AmazonCtrl', function($scope, RegFactory, AmazonFactory, ItemToR
     AmazonFactory.getItemInfo($scope.amazonSearchTerm).then(function(itemData) {
       itemData = $.parseXML(itemData);
       let items = itemData.getElementsByTagName("Item");
+      $scope.itemCollection = [];
+
       for (let item in items) {
         let currentItem = items[item];
         let formattedItem = {};
-
         if (typeof currentItem === "object") {
           formattedItem.uid = $scope.userId;
           formattedItem.link = currentItem.getElementsByTagName("DetailPageURL")[0].innerHTML;

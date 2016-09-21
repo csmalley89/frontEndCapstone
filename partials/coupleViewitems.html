@@ -14,8 +14,6 @@
             <a ng-click="searchAmazon()" class="btn waves-effect waves-light teal lighten-1">Search</a>
           </span>
         </div>
-<!--         <div class="col s1">
-        </div> -->
       </div>
     </div>
   </div>
@@ -36,13 +34,13 @@
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">{{item.descriptionTitle}}<i class="material-icons right">close</i></span>
-          <p>{{item.description}}</p>
+          <p>{{item.comments}}</p>
         </div>
         <div class="card-action">
           <a href="{{item.link}}" target="_blank">View on Amazon</a>
 
 <!-- Need to build controller to view couples contributed to gift -->
-          <a ng-click="">View Contributions</a>
+          <a ng-click="itemDelete(item.id)">Remove item</a>
         </div>
       </div>
     </div>

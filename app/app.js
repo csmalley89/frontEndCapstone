@@ -29,14 +29,14 @@ app.config(function($routeProvider) {
       controller: 'AmazonCtrl',
       resolve: {isAuth}
     }).
+    when('/couple/registry/all', {
+      templateUrl: "partials/coupleViewItems.html",
+      controller: "RegistryListCtrl"
+    }).
     when('/guest/welcome', {
       templateUrl: 'partials/guest-home.html',
       controller: 'GuestViewAllCouplesCtrl',
       resolve: {isAuth}
-    }).
-    when('/couple/:coupleId/gifts', {
-      templateUrl: "partials/couple-home.html",
-      controller: "AmazonCtrl"
     }).
     // when('/amazontest', {
     //   templateUrl: "partials/amazontest.html",

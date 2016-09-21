@@ -2,11 +2,17 @@
   <div class="nav-wrapper">
     <a id="logo-container" ng-href="#/launch" class="brand-logo">wedReg</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="#">Login</a></li>
+      <li ng-show="!$parent.isLoggedIn"><a href="#loginModal" modal>Login</a></li>
+      <li ng-show="$parent.isLoggedIn"><a href="#/launch">Logout</a></li>
+      <li ng-show="$parent.isLoggedIn"><a href="#/couple/welcome">Add to Registry</a></li>
+      <li ng-show="$parent.isLoggedIn"><a href="#/couple/registry/all">View Registry</a></li>
     </ul>
 
     <ul id="nav-mobile" class="side-nav">
-      <li><a href="#">Login</a></li>
+      <li ng-show="!$parent.isLoggedIn"><a href="#loginModal" modal>Login</a></li>
+      <li ng-show="$parent.isLoggedIn"><a href="#/launch">Logout</a></li>
+      <li ng-show="$parent.isLoggedIn"><a href="#/couple/welcome">Add to Registry</a></li>
+      <li ng-show="$parent.isLoggedIn"><a href="#/couple/registry/all">View Registry</a></li>
     </ul>
     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     <div class="input-field col s4 right">
@@ -15,3 +21,5 @@
     </div>
   </div>
 </nav>
+
+

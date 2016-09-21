@@ -46,10 +46,10 @@ app.factory("RegFactory", ($q, $http, FirebaseURL) => {
   };
 
 
-  let loadGiftsByUser = function (uid){
+  let loadUserRegistry = function (giftObj){
     return $q(function(resolve, reject){
-      console.log('user id', uid);
-      $http.get(`${FirebaseURL}/gifts.json?orderBy="uid"&equalTo="${uid}"`).
+      console.log('user id', giftObj);
+      $http.get(`${FirebaseURL}/couples.json?orderBy="uid"&equalTo="${giftObj}"`).
       success(function(giftRegistry){
         if(giftRegistry !== null){
           gifts = [];
@@ -72,6 +72,14 @@ app.factory("RegFactory", ($q, $http, FirebaseURL) => {
         resolve();
       }).error(function(error){
         reject(error);
+      });
+    });
+  };
+  let deleteItem = (giftObj) => {
+    return $q((resolve, reject) => {
+      $http.delete(`${FirebaseURL}/gifts/${giftObj.uid}.json`)
+      .success((objFromFirebase) => {
+        resolve(objFromFirebase);
       });
     });
   };
@@ -99,14 +107,6 @@ app.factory("RegFactory", ($q, $http, FirebaseURL) => {
     });
   };
 
-  let deleteCouple = (coupleId) => {
-    return $q((resolve, reject) => {
-      $http.delete(`${FirebaseURL}/couples/${coupleId}.json`)
-      .success((objFromFirebase) => {
-        resolve(objFromFirebase);
-      });
-    });
-  };
 
 
 // guest functions
@@ -175,5 +175,5 @@ app.factory("RegFactory", ($q, $http, FirebaseURL) => {
       });
     });
   };
-  return{getCoupleList, registerNewCouple, loadGiftsByUser, postNewGift, getSingleCouple, updateCouple, deleteCouple, getGuestList, registerNewGuest, getSingleGuest, updateGuest, deleteGuest};
+  return{getCoupleList, registerNewCouple, loadUserRegistry, postNewGift, deleteItem, getSingleCouple, updateCouple, getGuestList, registerNewGuest, getSingleGuest, updateGuest, deleteGuest};
 });

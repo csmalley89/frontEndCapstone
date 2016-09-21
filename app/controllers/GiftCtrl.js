@@ -30,10 +30,11 @@ app.controller("GiftModalCtrl", function($scope, GiftModal, ItemToRegister, $rou
 
   $scope.giftToSite = function(){
     RegFactory.postNewGift($scope.itemToRegister).then(function(user) {
-      $scope.closeModal().then(function() {
-        let path = `{$routeParams.userId}/gifts`;
-        $location.url(path);
-      });
+      $scope.closeModal();
+      // .then(function() {
+      //   let path = `{$routeParams.userId}/couple/welcome`;
+      //   $location.url(path);
+      // });
     });
 
   };
