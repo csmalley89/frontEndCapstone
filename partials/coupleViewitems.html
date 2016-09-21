@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col s6 offset-s3">
           <span>
-            <input ng-model="amazonSearchTerm" type="text" autofocus placeholder="Search Amazon.com" class="white teal-text">
+            <input ng-model="searchText.search" type="text" autofocus placeholder="Search Registered Items" class="white teal-text">
             <a ng-click="searchAmazon()" class="btn waves-effect waves-light teal lighten-1">Search</a>
           </span>
         </div>
@@ -24,7 +24,7 @@
 
 
 <div class="row">
-  <div ng-repeat="item in itemCollection">
+  <div ng-repeat="item in itemCollection | filter: searchText.search"">
     <div class="col s12 m5 offset-s1">
       <div class="card medium">
         <div class="card-image waves-effect waves-block waves-light">
@@ -40,7 +40,9 @@
         </div>
         <div class="card-action">
           <a href="{{item.link}}" target="_blank">View on Amazon</a>
-          <a ng-click="itemSelected(item); openGiftModal()">Add to Registry</a>
+
+<!-- Need to build controller to view couples contributed to gift -->
+          <a ng-click="">View Contributions</a>
         </div>
       </div>
     </div>

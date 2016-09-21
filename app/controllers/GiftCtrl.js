@@ -1,26 +1,37 @@
 "use strict";
-app.factory("PinModal", function(btfModal){
+app.factory("GiftModal", function(btfModal, AuthFactory, $q){
+
+  let getUser = function() {
+    return $q(function(resolve, reject){
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          resolve(user.uid);
+        }
+      });
+    });
+  };
+    console.log(getUser());
+
   return btfModal({
-    controller: "PinModalCtrl",
+    controller: "GiftModalCtrl",
     controllerAs: "modal",
-    templateUrl: "partials/pinModal.html"
+    templateUrl: "partials/giftModal.html",
+    getUser
   });
 });
 
-app.controller("PinModalCtrl", function($scope, PinModal, ItemToPin, $routeParams, $location, RegFactory){
 
-  $scope.closeModal = PinModal.deactivate;
+app.controller("GiftModalCtrl", function($scope, GiftModal, ItemToRegister, $routeParams, $location, RegFactory, AuthFactory){
 
-  $scope.itemToPin = ItemToPin.getItem();
 
-  $scope.itemToPin.boardid = $routeParams.boardID;
+  $scope.closeModal = GiftModal.deactivate;
 
-  console.log($scope.itemToPin);
+  $scope.itemToRegister = ItemToRegister.getItem();
 
-  $scope.pinToBoard = function(){
-    RegFactory.postNewPin($scope.itemToPin).then(function(user) {
+  $scope.giftToSite = function(){
+    RegFactory.postNewGift($scope.itemToRegister).then(function(user) {
       $scope.closeModal().then(function() {
-        let path = `${$routeParams.boardID}/pins`;
+        let path = `{$routeParams.userId}/gifts`;
         $location.url(path);
       });
     });

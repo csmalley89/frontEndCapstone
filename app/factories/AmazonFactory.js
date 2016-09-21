@@ -49,17 +49,6 @@ app.factory('AmazonFactory', function(AmazonCreds, $q, $http) {
     var PublicKey = AmazonCreds.publicKey;
     var AssociateTag = AmazonCreds.associateId;
 
-    // // Parameters for request
-    // var parameters = [];
-    // parameters.push("Service=AWSECommerceService");
-    // parameters.push("AWSAccessKeyId=" + PublicKey);
-    // parameters.push("AssociateTag=" + AssociateTag);
-    // parameters.push("Operation=ItemLookup");
-    // parameters.push("ItemId=" + item);
-    // parameters.push("ResponseGroup=Large");
-    // parameters.push("Timestamp=" + encodeURIComponent(timestamp()));
-    // parameters.push("Version=2011-08-01");
-
     // Format Item for request
     let formattedItem = encodeURIComponent(item);
     console.log("Formatted item", formattedItem);

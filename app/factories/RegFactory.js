@@ -1,9 +1,11 @@
 "use strict";
 
 app.factory("RegFactory", ($q, $http, FirebaseURL) => {
+  let couples = [];
+  let gifts = [];
+
 // couple functions
   let getSingleCouple = (couple) => {
-    let couples = [];
     return $q((resolve, reject) => {
       $http.get(`${FirebaseURL}/couples.json?orderBy="uid"&equalTo="${couple}"`)
       .success((coupleObject) => {
@@ -24,7 +26,6 @@ app.factory("RegFactory", ($q, $http, FirebaseURL) => {
   };
 
   let getCoupleList = (couple) => {
-    let couples = [];
     return $q((resolve, reject) => {
       $http.get(`${FirebaseURL}/couples.json`)
       .success((coupleObject) => {
@@ -44,22 +45,30 @@ app.factory("RegFactory", ($q, $http, FirebaseURL) => {
     });
   };
 
-  // let getSingleCouple = (coupleId) => {
-  //   return $q((resolve, reject) => {
-  //     $http.get(`${FirebaseURL}/couples/${coupleId}.json`)
-  //     .success((coupleObject) =>{
-  //       resolve(coupleObject);
-  //     })
-  //     .error((error) => {
-  //       reject(error);
-  //     });
-  //   });
-  // };
 
-  let postNewPin = function(pinObj){
-    return $q(function(resolve,reject){
-      $http.post(`${FirebaseURL}/pins.json`,
-      pinObj).success(function(){
+  let loadGiftsByUser = function (uid){
+    return $q(function(resolve, reject){
+      console.log('user id', uid);
+      $http.get(`${FirebaseURL}/gifts.json?orderBy="uid"&equalTo="${uid}"`).
+      success(function(giftRegistry){
+        if(giftRegistry !== null){
+          gifts = [];
+        Object.keys(giftRegistry).forEach(function(key){
+          giftRegistry[key].giftid=key;
+          gifts.push(giftRegistry[key]);
+        });
+      }
+        resolve(gifts);
+      }).error(function(error){
+        reject(error);
+      });
+    });
+  };
+
+  let postNewGift = function(giftObj){
+    return $q(function(resolve, reject){
+      $http.post(`${FirebaseURL}/gifts/${giftObj.uid}.json`,
+      giftObj).success(function(){
         resolve();
       }).error(function(error){
         reject(error);
@@ -166,5 +175,5 @@ app.factory("RegFactory", ($q, $http, FirebaseURL) => {
       });
     });
   };
-  return{postNewPin, getCoupleList, registerNewCouple, getSingleCouple, updateCouple, deleteCouple, getGuestList, registerNewGuest, getSingleGuest, updateGuest, deleteGuest};
+  return{getCoupleList, registerNewCouple, loadGiftsByUser, postNewGift, getSingleCouple, updateCouple, deleteCouple, getGuestList, registerNewGuest, getSingleGuest, updateGuest, deleteGuest};
 });

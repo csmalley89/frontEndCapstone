@@ -1,10 +1,11 @@
 "use strict";
 
-app.controller("TopCtrl", function($scope, $location, $window, AuthFactory){
+app.controller("TopCtrl", function($scope, $q, $location, $window, AuthFactory){
   $scope.isLoggedIn = false;
   let currentUser = null;
 
-  firebase.auth().onAuthStateChanged(function(user){
+
+firebase.auth().onAuthStateChanged(function(user){
     if (user) {
       currentUser = user.uid;
       $scope.isLoggedIn = true;
@@ -19,8 +20,14 @@ app.controller("TopCtrl", function($scope, $location, $window, AuthFactory){
   });
 
   $scope.getUser = function() {
-    console.log("getUser", currentUser);
-    return currentUser;
+    return $q(function(resolve, reject){
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+        // console.log("user in get user", user.uid);
+          resolve(user.uid);
+        }
+      });
+    });
   };
 
   $scope.logout = function() {

@@ -12,15 +12,6 @@ let isAuth = (AuthFactory) => new Promise((resolve, reject) =>{
     reject();
   }
 });
-app.directive('scrollspy', function() {
-  return {
-      restrict: 'A',
-      // responsible for registering DOM listeners as well as updating the DOM
-      link: function() {
-          $('.scrollspy').scrollSpy();
-      }
-     };
- });
 
 
 app.config(function($routeProvider) {
@@ -35,7 +26,7 @@ app.config(function($routeProvider) {
     }).
     when('/couple/welcome', {
       templateUrl: 'partials/couple-home.html',
-      controller: 'UserInfoCtrl',
+      controller: 'AmazonCtrl',
       resolve: {isAuth}
     }).
     when('/guest/welcome', {
@@ -43,10 +34,14 @@ app.config(function($routeProvider) {
       controller: 'GuestViewAllCouplesCtrl',
       resolve: {isAuth}
     }).
-    when('/amazonpins', {
-      templateUrl: "partials/amazonpins.html",
-      controller: "AmazonPinsCtrl"
+    when('/couple/:coupleId/gifts', {
+      templateUrl: "partials/couple-home.html",
+      controller: "AmazonCtrl"
     }).
+    // when('/amazontest', {
+    //   templateUrl: "partials/amazontest.html",
+    //   controller: "AmazonCtrl"
+    // }).
 
 
     // when('/items/view/:itemId', {

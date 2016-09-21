@@ -69,7 +69,7 @@ app.controller("LoginCtrl", function($scope, $window, RegFactory, AuthFactory){
     AuthFactory.loginUser($scope.account)
     .then( (data) => {
       if (data) {
-        $window.location.href = "#/guest/welcome";
+        $window.location.href = "#/couple/welcome";
       } else {
         $window.location.href = "#/launch";
       }
