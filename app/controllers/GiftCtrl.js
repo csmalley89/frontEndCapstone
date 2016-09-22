@@ -20,7 +20,7 @@ app.factory("GiftModal", function(btfModal, AuthFactory, $q){
   });
 });
 
-
+// Working Version
 app.controller("GiftModalCtrl", function($scope, GiftModal, ItemToRegister, $routeParams, $location, ItemFactory, AuthFactory){
 
 
@@ -41,3 +41,36 @@ app.controller("GiftModalCtrl", function($scope, GiftModal, ItemToRegister, $rou
 
 
 });
+
+// Test Version
+// app.controller("GiftModalCtrl", function($scope, GiftModal, ItemToRegister, $routeParams, $location, ItemFactory, AuthFactory){
+
+
+//   $scope.closeModal = GiftModal.deactivate;
+
+//   $scope.itemToRegister = ItemToRegister.getItem();
+
+//   $scope.giftToSite = function(){
+//     let newGift = {};
+//     newGift.image = $scope.image;
+//     newGift.comments = $scope.comments;
+//     newGift.link = $scope.link;
+//     newGift.price = $scope.price;
+//     newGift.title = $scope.title;
+//     newGift.coupleId = $routeParams.coupleId;
+
+
+
+
+//     ItemFactory.postNewItem(newGift).then(function() {
+//       $scope.closeModal();
+//       // .then(function() {
+//       //   let path = `{$routeParams.userId}/couple/welcome`;
+//       //   $location.url(path);
+//       // });
+//     });
+
+//   };
+
+
+// });

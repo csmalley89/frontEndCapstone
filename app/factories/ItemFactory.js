@@ -1,11 +1,14 @@
 "use strict";
 
 app.factory("ItemFactory", ($q, $http, FirebaseURL) => {
-  let items = [];
+  let items = []
 
-  let getItemList = (item) => {
+  let getItemList = (user) => {
+    console.log(user);
+    console.log(items);
+    console.log(`${FirebaseURL}/items.json?orderBy="uid"&equalTo="${user}"`)
     return $q((resolve, reject) => {
-      $http.get(`${FirebaseURL}/items.json`)
+      $http.get(`${FirebaseURL}/items.json?orderBy="uid"&equalTo="${user}"`)
       .success((itemObject) => {
         if (itemObject !== null) {
         Object.keys(itemObject).forEach((key) => {

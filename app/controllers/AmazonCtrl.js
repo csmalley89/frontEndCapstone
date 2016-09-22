@@ -32,7 +32,7 @@ app.controller('AmazonCtrl', function($scope, RegFactory, AmazonFactory, ItemToR
           formattedItem.image = currentItem.getElementsByTagName("LargeImage")[0].getElementsByTagName("URL")[0].innerHTML;
           formattedItem.title = currentItem.getElementsByTagName("ItemAttributes")[0].getElementsByTagName('Title')[0].innerHTML;
           formattedItem.price = currentItem.getElementsByTagName("OfferSummary")[0].getElementsByTagName('LowestNewPrice')[0].getElementsByTagName('FormattedPrice')[0].innerHTML;
-          // formattedItem.description = currentItem.getElementsByTagName("EditorialReviews")[0].getElementsByTagName("EditorialReview")[0].getElementsByTagName("Content")[0].innerHTML;
+          formattedItem.description = currentItem.getElementsByTagName("EditorialReviews")[0].getElementsByTagName("EditorialReview")[0].getElementsByTagName("Content")[0].innerHTML;
           formattedItem.descriptionTitle = currentItem.getElementsByTagName("EditorialReviews")[0].getElementsByTagName("EditorialReview")[0].getElementsByTagName("Source")[0].innerHTML;
           $scope.itemCollection.push(formattedItem);
         }
