@@ -23,12 +23,15 @@ firebase.auth().onAuthStateChanged(function(user){
     return $q(function(resolve, reject){
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-        // console.log("user in get user", user.uid);
+        console.log("user in get user", user.uid);
           resolve(user.uid);
         }
       });
     });
   };
+  // $scope.getUser = function() {
+  //   return currentUser;
+  // };
 
   $scope.logout = function() {
     AuthFactory.logoutUser()

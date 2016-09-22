@@ -2,7 +2,6 @@
 
 app.factory("RegFactory", ($q, $http, FirebaseURL) => {
   let couples = [];
-  let gifts = [];
 
 // couple functions
   let getSingleCouple = (couple) => {
@@ -46,43 +45,43 @@ app.factory("RegFactory", ($q, $http, FirebaseURL) => {
   };
 
 
-  let loadUserRegistry = function (giftObj){
-    return $q(function(resolve, reject){
-      console.log('user id', giftObj);
-      $http.get(`${FirebaseURL}/couples.json?orderBy="uid"&equalTo="${giftObj}"`).
-      success(function(giftRegistry){
-        if(giftRegistry !== null){
-          gifts = [];
-        Object.keys(giftRegistry).forEach(function(key){
-          giftRegistry[key].giftid=key;
-          gifts.push(giftRegistry[key]);
-        });
-      }
-        resolve(gifts);
-      }).error(function(error){
-        reject(error);
-      });
-    });
-  };
+  // let loadUserRegistry = function (giftObj){
+  //   return $q(function(resolve, reject){
+  //     console.log('user id', giftObj);
+  //     $http.get(`${FirebaseURL}/couples.json?orderBy="uid"&equalTo="${giftObj}"`).
+  //     success(function(giftRegistry){
+  //       if(giftRegistry !== null){
+  //         gifts = [];
+  //       Object.keys(giftRegistry).forEach(function(key){
+  //         giftRegistry[key].giftid=key;
+  //         gifts.push(giftRegistry[key]);
+  //       });
+  //     }
+  //       resolve(gifts);
+  //     }).error(function(error){
+  //       reject(error);
+  //     });
+  //   });
+  // };
 
-  let postNewGift = function(giftObj){
-    return $q(function(resolve, reject){
-      $http.post(`${FirebaseURL}/gifts/${giftObj.uid}.json`,
-      giftObj).success(function(){
-        resolve();
-      }).error(function(error){
-        reject(error);
-      });
-    });
-  };
-  let deleteItem = (giftObj) => {
-    return $q((resolve, reject) => {
-      $http.delete(`${FirebaseURL}/gifts/${giftObj.uid}.json`)
-      .success((objFromFirebase) => {
-        resolve(objFromFirebase);
-      });
-    });
-  };
+  // let postNewGift = function(giftObj){
+  //   return $q(function(resolve, reject){
+  //     $http.post(`${FirebaseURL}/gifts/${giftObj.uid}.json`,
+  //     giftObj).success(function(){
+  //       resolve();
+  //     }).error(function(error){
+  //       reject(error);
+  //     });
+  //   });
+  // };
+  // let deleteItem = (giftObj) => {
+  //   return $q((resolve, reject) => {
+  //     $http.delete(`${FirebaseURL}/gifts/${giftObj.uid}.json`)
+  //     .success((objFromFirebase) => {
+  //       resolve(objFromFirebase);
+  //     });
+  //   });
+  // };
   let registerNewCouple = (newCouple) => {
     return $q( (resolve, reject) => {
       $http.post(`${FirebaseURL}/couples.json`, JSON.stringify(newCouple))
@@ -175,5 +174,5 @@ app.factory("RegFactory", ($q, $http, FirebaseURL) => {
       });
     });
   };
-  return{getCoupleList, registerNewCouple, loadUserRegistry, postNewGift, deleteItem, getSingleCouple, updateCouple, getGuestList, registerNewGuest, getSingleGuest, updateGuest, deleteGuest};
+  return{getCoupleList, registerNewCouple, getSingleCouple, updateCouple, getGuestList, registerNewGuest, getSingleGuest, updateGuest, deleteGuest};
 });
