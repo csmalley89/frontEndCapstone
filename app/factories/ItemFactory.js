@@ -84,6 +84,7 @@ app.factory("ItemFactory", ($q, $http, FirebaseURL) => {
   //     });
   //   });
   // };
+    // Used to update pin indices when using drag and drop
 
   let getSingleItem = (itemId) => {
     return $q((resolve, reject) => {
@@ -122,6 +123,15 @@ app.factory("ItemFactory", ($q, $http, FirebaseURL) => {
     });
   };
 
+  let updateAllItems = (items) => {
+    if (!items) { return; }
+    // Update the index of all items on the board
+    return $q.all(
+      items.map((item) => {
+        return updateItem(item, item.id);
+      })
+    );
+  };
   let deleteItem = (itemId) => {
     return $q((resolve, reject) => {
       $http.delete(`${FirebaseURL}/items/${itemId}.json`)
@@ -132,5 +142,5 @@ app.factory("ItemFactory", ($q, $http, FirebaseURL) => {
   };
 
 
-  return{getItemList, postNewItem, deleteItem, getSingleItem, updateItem};
+  return{getItemList, postNewItem, deleteItem, updateItem, updateAllItems, getSingleItem};
 });

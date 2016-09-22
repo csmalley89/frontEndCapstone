@@ -32,7 +32,7 @@ app.controller("GiftModalCtrl", function($scope, GiftModal, ItemToRegister, $rou
     ItemFactory.postNewItem($scope.itemToRegister).then(function(user) {
       $scope.closeModal();
       // .then(function() {
-      //   let path = `{$routeParams.userId}/couple/welcome`;
+      //   let path = `{$routeParams.registryId}`;
       //   $location.url(path);
       // });
     });

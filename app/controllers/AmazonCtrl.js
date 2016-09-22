@@ -1,15 +1,16 @@
 "use strict";
-app.controller('AmazonCtrl', function($scope, RegFactory, AmazonFactory, ItemToRegister, GiftModal, $route) {
+app.controller('AmazonCtrl', function($scope, RegFactory, $routeParams, AmazonFactory, ItemToRegister, GiftModal, $route) {
   // Assures user only see their registered info
-  $scope.$parent.getUser()
-  .then ( (user) => {
-    $scope.userId = user;
-    RegFactory.getSingleCouple($scope.userId)
-    .then((couplesCollectionArr) => {
-      $scope.couples = couplesCollectionArr[0];
-    });
-  })
-  .catch(() => console.error);
+  // $scope.$parent.getUser()
+  // .then ( (user) => {
+  //   $scope.userId = user;
+  //   RegFactory.getSingleCouple($scope.userId)
+  //   .then((couplesCollectionArr) => {
+  //     $scope.couples = couplesCollectionArr[0];
+  //   });
+  // })
+  // .catch(() => console.error);
+  RegFactory.getSingleCouple($routeParams.registryId);
 
 
   // Bound to input to assist amazon search

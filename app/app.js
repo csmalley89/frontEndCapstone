@@ -29,7 +29,7 @@ app.config(function($routeProvider) {
       controller: 'AmazonCtrl',
       resolve: {isAuth}
     }).
-    when('/couple/registry/all', {
+    when('/couple/registry/:registryId', {
       templateUrl: "partials/coupleViewItems.html",
       controller: "RegistryListCtrl",
       resolve: {isAuth}

@@ -22,7 +22,41 @@
   <div class="parallax" parallax><img src="img/weddingbanner.png"></div>
 </div>
 
+<!-- DND Version -->
+<!-- <div class="row">
+  <ul dnd-list="itemCollection">
+    <li
+      ng-repeat="item in itemCollection"
+      dnd-draggable="item"
+      dnd-moved="itemCollection.splice($index, 1)"
+      dnd-effect-allowed="move"
+      dnd-selected="selected = item"
+      ng-class="{'selected' : selected === item}"
+      class="col s12 m5 offset-s1"
+      ng-mouseenter="options=true" ng-mouseleave="options=false"
+    >
+      <div class="card medium">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="{{item.image}}">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4 truncate">{{item.price}}{{item.title}}<i class="material-icons right">more_vert</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">{{item.descriptionTitle}}<i class="material-icons right">close</i></span>
+          <p>{{item.description}}</p>
+        </div>
+        <div class="card-action">
+          <a href="{{item.link}}" target="_blank">View on Amazon</a>
+          <a ng-click="itemSelected(item); openGiftModal()">Add to Registry</a>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div> -->
 
+
+<!-- version before trying DND -->
 <div class="row">
   <div ng-repeat="item in itemCollection">
     <div class="col s12 m5 offset-s1">

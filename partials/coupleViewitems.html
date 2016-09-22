@@ -3,7 +3,44 @@
   <div ng-include="'partials/couplebanner.html'"></div>
 </div>
 
+<!-- DND Version -->
 <div class="row">
+<!--   <div class="col s12 m5 offset-s1"> -->
+    <ul dnd-list="items">
+      <li
+        ng-repeat="item in items | filter: searchText"
+        dnd-draggable="item"
+        dnd-moved="items.splice($index, 1)"
+        dnd-effect-allowed="move"
+        dnd-selected="selected = item"
+        ng-class="{'selected' : selected === item}"
+        class="col s12 m5 offset-s1"
+        ng-mouseenter="options=true" ng-mouseleave="options=false"
+      >
+        <div class="card medium">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{{item.image}}">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4 truncate">{{item.price}}{{item.title}}<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{item.price}}<i class="material-icons right">close</i></span>
+            <p>{{item.comments}}</p>
+          </div>
+          <div class="card-action">
+            <a href="{{item.link}}" target="_blank">View on Amazon</a>
+            <a ng-click="itemDelete(item.id)">Remove Item</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  <!-- </div> -->
+</div>
+
+
+<!-- Version before DND -->
+<!-- <div class="row">
   <div ng-repeat="item in items | filter: searchText.search">
     <div class="col s12 m5 offset-s1">
       <div class="card medium">
@@ -20,10 +57,9 @@
         <div class="card-action">
           <a href="{{item.link}}" target="_blank">View on Amazon</a>
 
-<!-- Need to build controller to view couples contributed to gift -->
           <a ng-click="itemDelete(item.id)">Remove item</a>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
