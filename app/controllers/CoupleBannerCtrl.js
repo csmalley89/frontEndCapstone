@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("CoupleBannerCtrl", function($scope, RegFactory, SearchTermData) {
+app.controller("CoupleBannerCtrl", function($scope, RegFactory, SearchService) {
   // Assures user only see their registered info
   $scope.$parent.getUser()
   .then ( (user) => {

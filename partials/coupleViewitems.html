@@ -8,7 +8,7 @@
   <!-- <div class="col s12 m5 offset-s1"> -->
     <ul dnd-list="items">
       <li
-        ng-repeat="item in items | filter: searchText.search"
+        ng-repeat="item in items | filter: searchText"
         dnd-draggable="item"
         dnd-moved="items.splice($index, 1)"
         dnd-effect-allowed="move"

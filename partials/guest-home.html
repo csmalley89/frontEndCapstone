@@ -10,7 +10,7 @@
       </div> -->
       <div class="row">
         <div class="input-field col s12 center">
-          <input class="white teal-text lighten-2" id="search" type="search" ng-model="searchText.search" placeholder="search for registered couples">
+          <input class="white teal-text lighten-2" id="search" type="search" ng-model="searchText" placeholder="search for registered couples">
         </div>
       </div>
     </div>
@@ -20,7 +20,7 @@
 
 <div class="container">
   <div class="row">
-    <div ng-repeat="couple in couples | filter: searchText.search">
+    <div ng-repeat="couple in couples | filter: searchText">
       <div class="col s12 m4">
         <div class="card-panel teal">
           <span class="pink-text text-accent-1"><h3>{{couple.firstName1}} &#38 {{couple.firstName2}}</h3>

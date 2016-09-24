@@ -1,7 +1,7 @@
 "use strict";
 
-app.controller("GuestViewAllCouplesCtrl", function($scope, RegFactory, SearchTermData) {
-  $scope.searchText = SearchTermData;
+app.controller("GuestViewAllCouplesCtrl", function($scope, RegFactory, SearchService) {
+  $scope.searchText = SearchService;
   let user = $scope.$parent.getUser();
     console.log("UserInfoCtrl", user);
   RegFactory.getCoupleList(user)
