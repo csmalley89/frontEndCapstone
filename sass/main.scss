@@ -50,3 +50,23 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+// Needed for drag and drop functionality
+ul[dnd-list],
+ul[dnd-list] > li {
+  position: relative;
+}
+
+ul[dnd-list] {
+    //min-height: 420px;
+    padding-left: 0px;
+    list-style-type: none;
+}
+
+ul[dnd-list] .dndDraggingSource {
+    display: none;
+}
+
+ul[dnd-list] .dndPlaceholder {
+    background-color: #ddd;
+}
