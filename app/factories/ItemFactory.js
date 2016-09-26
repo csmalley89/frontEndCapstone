@@ -1,11 +1,14 @@
 "use strict";
 
-app.factory("ItemStorage", ($q, $http, FirebaseURL) => {
+app.factory("ItemFactory", ($q, $http, FirebaseURL) => {
+  let items = [];
 
   let getItemList = (user) => {
-    let items = [];
+    console.log(user);
+    console.log(items);
+    console.log(`${FirebaseURL}/items.json?orderBy="uid"&equalTo="${user}"`);
     return $q((resolve, reject) => {
-      $http.get(`${FirebaseURL}items.json?orderBy="uid"&equalTo="${user}"`)
+      $http.get(`${FirebaseURL}/items.json?orderBy="uid"&equalTo="${user}"`)
       .success((itemObject) => {
         if (itemObject !== null) {
         Object.keys(itemObject).forEach((key) => {
@@ -23,9 +26,68 @@ app.factory("ItemStorage", ($q, $http, FirebaseURL) => {
     });
   };
 
+  // let getItemList = (user) => {
+  //   let items = [];
+  //   return $q((resolve, reject) => {
+  //     $http.get(`${FirebaseURL}/items.json?orderBy="uid"&equalTo="${user}"`)
+  //     .success((itemObject) => {
+  //       console.log("getItemList")
+  //       if (itemObject !== null) {
+  //       Object.keys(itemObject).forEach((key) => {
+  //         itemObject[key].id = key;
+  //         items.push(itemObject[key]);
+  //       });
+  //       resolve(items);
+  //     } else {
+  //       resolve(items);
+  //     }
+  //     })
+  //     .error((error) => {
+  //       reject(error);
+  //     });
+  //   });
+  // };
+  // let getItemList = function (itemObj){
+  //   return $q(function(resolve, reject){
+  //     console.log('user id', itemObj);
+  //     $http.get(`${FirebaseURL}/items.json?orderBy="uid"&equalTo="${itemObj}"`).
+  //     success(function(itemRegistry){
+  //       if(itemRegistry !== null){
+  //         items = [];
+  //       Object.keys(itemRegistry).forEach(function(key){
+  //         itemRegistry[key].itemid=key;
+  //         items.push(itemRegistry[key]);
+  //       });
+  //     }
+  //       resolve(items);
+  //     }).error(function(error){
+  //       reject(error);
+  //     });
+  //   });
+  // };
+  // let getItemList = function(user) {
+  //   let items = [];
+  //   return $q(function(resolve, reject) {
+  //     console.log('baord id', user[0]);
+  //     $http.get(`${FirebaseURL}/items.json?orderBy="uid"&equalTo="${user}"`)
+  //     .success(function(snapShot) {
+  //       if(snapShot !== null) {
+  //         Object.keys(snapShot).forEach(function(key) {
+  //           snapShot[key].item = key;
+  //           items.push(snapShot[key]);
+  //         });
+  //       }
+  //       resolve(items);
+  //     })
+  //     .error(function(error) {
+  //       reject(error);
+  //     });
+  //   });
+  // };
+
   let getSingleItem = (itemId) => {
     return $q((resolve, reject) => {
-      $http.get(`${FirebaseURL}items/${itemId}.json`)
+      $http.get(`${FirebaseURL}/items/${itemId}.json`)
       .success((itemObject) =>{
         resolve(itemObject);
       })
@@ -35,13 +97,14 @@ app.factory("ItemStorage", ($q, $http, FirebaseURL) => {
     });
   };
 
-  let postNewItem = (newItem) => {
-    return $q( (resolve, reject) => {
-      $http.post(`${FirebaseURL}items.json`, JSON.stringify(newItem))
-        .success((objFromFirebase) => {
-          resolve(objFromFirebase);
-        })
-      .error((error)=>{
+
+  let postNewItem = function(newItem){
+    return $q(function(resolve, reject){
+      $http.post(`${FirebaseURL}/items.json`,
+      newItem).success(function(objFromFirebase){
+        console.log("new item", newItem);
+        resolve(objFromFirebase);
+      }).error(function(error){
         reject(error);
       });
     });
@@ -49,7 +112,7 @@ app.factory("ItemStorage", ($q, $http, FirebaseURL) => {
 
   let updateItem = (itemId, editedItem) => {
     return $q((resolve, reject) => {
-      $http.patch(`${FirebaseURL}items/${itemId}.json`, JSON.stringify(editedItem))
+      $http.patch(`${FirebaseURL}/items/${itemId}.json`, JSON.stringify(editedItem))
       .success((objFromFirebase) =>{
         resolve(objFromFirebase);
       })
@@ -61,7 +124,7 @@ app.factory("ItemStorage", ($q, $http, FirebaseURL) => {
 
   let deleteItem = (itemId) => {
     return $q((resolve, reject) => {
-      $http.delete(`${FirebaseURL}items/${itemId}.json`)
+      $http.delete(`${FirebaseURL}/items/${itemId}.json`)
       .success((objFromFirebase) => {
         resolve(objFromFirebase);
       });
@@ -70,3 +133,4 @@ app.factory("ItemStorage", ($q, $http, FirebaseURL) => {
 
 
   return{getItemList, postNewItem, deleteItem, getSingleItem, updateItem};
+});

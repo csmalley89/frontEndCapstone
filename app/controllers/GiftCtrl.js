@@ -1,22 +1,22 @@
 "use strict";
 app.factory("GiftModal", function(btfModal, AuthFactory, $q){
 
-  let getUser = function() {
-    return $q(function(resolve, reject){
-      firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-          resolve(user.uid);
-        }
-      });
-    });
-  };
-    console.log(getUser());
+  // let getUser = function() {
+  //   return $q(function(resolve, reject){
+  //     firebase.auth().onAuthStateChanged(function(user) {
+  //       if (user) {
+  //         resolve(user.uid);
+  //       }
+  //     });
+  //   });
+  // };
+  //   console.log(getUser());
 
   return btfModal({
     controller: "GiftModalCtrl",
     controllerAs: "modal",
     templateUrl: "partials/giftModal.html",
-    getUser
+    // getUser
   });
 });
 

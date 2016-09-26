@@ -23,11 +23,16 @@ firebase.auth().onAuthStateChanged(function(user){
     return $q(function(resolve, reject){
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-        // console.log("user in get user", user.uid);
-          resolve(user.uid);
+         let userId = user.uid;
+        console.log("user in get user", user.uid);
+        console.log("userId", userId);
+          resolve(userId);
         }
       });
     });
+  };
+  $scope.getUser2 = function() {
+    return currentUser;
   };
 
   $scope.logout = function() {

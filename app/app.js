@@ -1,4 +1,3 @@
-
 "use strict";
 
 
@@ -31,7 +30,8 @@ app.config(function($routeProvider) {
     }).
     when('/couple/registry/all', {
       templateUrl: "partials/coupleViewItems.html",
-      controller: "RegistryListCtrl"
+      controller: "RegistryListCtrl",
+      resolve: {isAuth}
     }).
     when('/guest/welcome', {
       templateUrl: 'partials/guest-home.html',
